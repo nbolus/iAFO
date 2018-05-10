@@ -1,0 +1,29 @@
+# Follow these directions to set up communications between MBP and RPi
+
+For headless RPi without access to router and without USB wifi dongle:
+- Connect crossover ethernet cable to ethernet jack on RPi
+
+- Other end of ethernet through USB-ethernet adapter into MBP
+- - make sure ethernet adapter extension is working properly
+- - - About this mac > system report > Extensions > AX88772 (for Tripplite USB 2.0 device)
+- - - Loaded = yes ?
+
+- If RPi doesn't need network connectivity, internet sharing = off
+- - In Terminal : arp - a
+- - Look for raspberrpi.local on en8 (probably something like 169.254.182.95)
+- - - This is a self-assigned IP, will not be able to connect to internet
+- - Can SSH using this address. In Terminal:
+- - - ping 169.254.182.95 (check to see if packets are sending)
+- - - ssh pi@169.254.182.95
+- - Then log in
+
+- If RPi needs network connectivity, internet sharing = on
+- - *** NB: This will not work on all networks, GTWifi amongst them!
+- - In Terminal : arp - a
+- - - Look for IP address on bridge100 (could be something like 192.168.3.2)
+- - Then follow similar procedure as above to SSH
+
+- If you need screen sharing:
+- - RPi must have been configured appropriately in VNC Server beforehand!
+- - - See "The best part of using your Mac" answer at https://raspberrypi.stackexchange.com/questions/59605/access-to-raspberry-pi-vnc-session-from-mac-os-x
+- - In Finder > CMD + K > In "server address" field: vnc://<rpi ip address here> 

@@ -1,0 +1,20 @@
+# Directions for GitHub interface between MBP and RPi
+
+- From MBP
+- - 	When changes are made to files within the 'iafo' GitHub repo (or files are added 	to the folder/subfolder):
+	<
+	cd /Users/Nicky/Documents/GitHub/iafo
+	git add . ## git add -A ?? ##
+	git status ## as a sanity check! ##
+	git commit -am "YOUR MESSAGE/DESCRIPTION HERE"
+	git push
+	>
+- From RPi
+	<
+	cd ~/iAFO
+	git fetch --all
+	git reset --hard origin/master
+	>
+
+
+	
